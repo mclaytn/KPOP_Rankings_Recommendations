@@ -1,0 +1,21 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read CSV file and print table of KPOP songs
+df = pd.read_csv("Kpop_rankings.csv")
+my_korean_df = pd.DataFrame(df)
+print(my_korean_df)
+
+# Graph Plots
+def kpop_df(year, song_title):
+    for row in df:
+        year.append(str(row[1]))
+        song_title.append(str(row[4]))
+    plot_table_kpop = kpop_df(year, song_title)
+    plt.plot(plot_table_kpop, color = 'g', linestyle = 'dashed', 
+         marker = 'o',label = "Song Titles Throughout the Years") 
+  
+plt.xlabel('Song Title') 
+plt.ylabel('Year') 
+plt.title('Song Titles Throughout the Years', fontsize = 20) 
+plt.show()
